@@ -1,62 +1,86 @@
-AutoDoodler Local Setup Guide
+🎨 AutoDoodler
 
-Follow these steps to run the AutoDoodler app on your local machine using Python 3.
+AutoDoodler is a Python-based whiteboard animation generator that uses OpenCV and MoviePy to create "hand-drawn" video effects from images and text. This application runs locally in your browser using Streamlit.
+
+🚀 Quick Start Guide
+
+Follow these instructions to set up and run the project on your local machine.
 
 1. Prerequisites
 
-Ensure you have Python 3 installed. You can verify this by running:
+Python 3.8+: Ensure you have Python installed.
 
 python3 --version
 
 
-2. Project Setup
+2. Installation
 
-Open your terminal or command prompt and navigate to the folder where you saved autododler.py.
+Navigate to the project folder in your terminal/command prompt.
 
-Create a Virtual Environment
+Create and Activate a Virtual Environment (Recommended):
 
-It is best practice to run this in a virtual environment to avoid conflicts.
-
-On macOS / Linux:
+macOS / Linux:
 
 python3 -m venv venv
 source venv/bin/activate
 
 
-On Windows (Command Prompt):
+Windows (Command Prompt):
 
 python -m venv venv
 venv\Scripts\activate
 
 
-On Windows (PowerShell):
+Windows (PowerShell):
 
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 
 
-(You will know it worked if you see (venv) at the start of your terminal line)
+Install Dependencies:
+You can install the required libraries directly using pip.
 
-3. Install Dependencies
+Option A: Create a requirements.txt file
+Create a file named requirements.txt with the following content:
 
-Save the requirements.txt file provided below in the same folder, then run:
+streamlit
+opencv-python-headless
+moviepy
+numpy
+imageio-ffmpeg
+
+
+Then run:
 
 pip install -r requirements.txt
 
 
-Note: If you run into issues with OpenCV, you may need to install opencv-python instead of opencv-python-headless depending on your OS, but headless is generally recommended for server-based apps like Streamlit.
+Option B: Install directly via command line
 
-4. Run the Application
+pip install streamlit opencv-python-headless moviepy numpy imageio-ffmpeg
 
-Once the installation finishes, launch the app:
+
+Note: If you encounter errors with OpenCV, you may need to use the standard package instead of headless:
+pip install opencv-python
+
+3. Usage
+
+Once installed, start the application by running:
 
 streamlit run autododler.py
 
 
-This will automatically open your default web browser to http://localhost:8501.
+This will automatically open your default web browser to:
+http://localhost:8501
 
-5. Troubleshooting
+4. Troubleshooting
 
-MoviePy/FFmpeg errors: If MoviePy complains about missing FFmpeg, usually it installs its own binary, but if it fails, you can try: pip install imageio-ffmpeg.
+FFmpeg not found: If MoviePy fails to render, try installing FFmpeg manually or run:
 
-OpenCV errors: If headless fails, try: pip uninstall opencv-python-headless followed by pip install opencv-python.
+pip install imageio-ffmpeg
+
+
+OpenCV Import Error: If cv2 cannot be imported, try reinstalling it:
+
+pip uninstall opencv-python-headless
+pip install opencv-python
