@@ -1,4 +1,3 @@
-# Fulldoodler
 AutoDoodler Local Setup Guide
 
 Follow these steps to run the AutoDoodler app on your local machine using Python 3.
